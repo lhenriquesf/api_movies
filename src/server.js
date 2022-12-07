@@ -1,36 +1,33 @@
-require('express-async-errors');
+require("express-async-errors");
 
-const database = require("./database/sqlite");
-const AppError = require('./utils/AppError');
+const AppError = require("./utils/AppError");
 
-const express = require('express');
+const migatrionsRun = require("./database/sqlite/migrations");
 
-const routes = require('./routes');
-
+const express = require("express");
 const app = express();
+migatrionsRun();
+
 app.use(express.json());
 
+const routes = require("./routes");
 app.use(routes);
-database();
 
-app.use((error, request, response, next) => {
-    
+app.use((error, request, response, next)=>{
     if(error instanceof AppError){
         return response.status(error.statusCode).json({
-            status: 'error',
+            status: "error",
             message: error.message
         });
     }
+
     console.log(error);
 
     return response.status(500).json({
-        status: 'error',
-        message: 'Internal server error'
+        status: "error",
+        message: "Internal Server Error"
     });
-});
+})
 
-
-const PORT = 3333;
-app.listen(PORT, ()=>{
-    console.log(`Server is running on Port ${PORT}`);
-});
+const PORT = 6000;
+app.listen(PORT, ()=> console.log(`Server is running on Port ${PORT}`));
