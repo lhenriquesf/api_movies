@@ -1,7 +1,7 @@
 import { Header } from "../../components/Header";
 import { Tag } from "../../components/Tag";
 import { Container } from "./styles";
-import {FiArrowLeft, FiClock, FiStar} from "react-icons/fi";
+import {FiArrowLeft, FiClock} from "react-icons/fi";
 
 export function Details(){
     return(
