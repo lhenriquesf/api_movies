@@ -16,12 +16,9 @@ export const Container = styled.div`
         align-items: center;
         justify-content: center;
         padding: 12px;
+        padding-top: 16px;
         color: ${({theme}) => theme.COLORS.WHITE};
         background: transparent;
         border: 0;
-
-        &:placeholder{
-            color: ${({theme}) => theme.COLORS.ORANGE};
-        }
     }
 `;
