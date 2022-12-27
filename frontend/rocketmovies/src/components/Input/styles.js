@@ -7,18 +7,20 @@ export const Container = styled.div`
     background-color: ${({theme}) => theme.COLORS.BACKGROUND_700};
     color: ${({theme}) => theme.COLORS.GRAY_300};
 
-    margin-top: 30px;
-    margin-bottom: 30px;
     border-radius: 10px;
 
+    margin-bottom: 8px;
+
+    padding-left: 10px;
+
     >input{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 12px;
-        padding-top: 16px;
+        width: 90%;
+        height: 100%;
+
         color: ${({theme}) => theme.COLORS.WHITE};
         background: transparent;
         border: 0;
+
+        padding-left: 10px;
     }
 `;
