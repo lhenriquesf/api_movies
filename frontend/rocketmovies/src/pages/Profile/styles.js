@@ -25,7 +25,7 @@ export const Container = styled.div`
 
 export const Form = styled.form`
 
-    margin-left: 33.5%;
+    margin-left: 39%;
 
     >div:nth-child(3){
         margin-top: 24px;

@@ -2,6 +2,7 @@ import { Container } from "./styles";
 import { Header } from "../../components/Header";
 import { FiPlus } from "react-icons/fi";
 import { Note } from "../../components/Note";
+import { Link } from "react-router-dom";
 
 export function Home(){
     return(
@@ -10,7 +11,7 @@ export function Home(){
             <main>
                 <div>
                     <h1>Meus filmes</h1>
-                    <button><FiPlus/> Adicionar filme</button>
+                    <Link to="/new" ><FiPlus/> Adicionar filme</Link>
                 </div>
 
                 <Note className="block-with-text" data={{

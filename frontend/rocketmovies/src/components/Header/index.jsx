@@ -1,14 +1,14 @@
 import { Container, Profile, Logout, Brand } from "./styles";
-import { Input } from "../Input";
+import { InputSearch } from "../InputSearch";
 
 export function Header(){
     return(
         <Container>
             <Brand>RocketMovies</Brand>
 
-            <Input placeholder="Pesquisar pelo titulo"/>
+            <InputSearch placeholder="Pesquisar pelo titulo"/>
 
-            <Profile>
+            <Profile to="/profile" >
                 <div>
                     <strong>Luiz Henrique</strong>
                     <Logout>sair</Logout>

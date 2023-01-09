@@ -2,6 +2,7 @@ import { Header } from "../../components/Header";
 import { Tag } from "../../components/Tag";
 import { Container } from "./styles";
 import {FiArrowLeft, FiClock} from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 export function Details(){
     return(
@@ -9,7 +10,7 @@ export function Details(){
             <Header/>
 
             <main>
-                <a href="#"> <FiArrowLeft/> Voltar</a>
+                <Link to="/" > <FiArrowLeft/> Voltar</Link>
 
                 <h1>Interestellar</h1>
                 <span><p><span><img src="https://github.com/lhenriquesf.png" alt="Foto do usuario"/> Por Luiz Henrique</span> <span> <FiClock color="#FF859B" /> 26/12/22 às 18:00</span></p></span>

@@ -33,11 +33,12 @@ export const Container = styled.div`
                 font-weight: 400;
             }
 
-            >button{
+            >a{
                 border-radius: 8px;
                 border: none;
                 padding: 15px 25px;
                 background-color: ${({theme})=>theme.COLORS.PINK};
+                color: #1C1B1E;
             }
         }
     }
