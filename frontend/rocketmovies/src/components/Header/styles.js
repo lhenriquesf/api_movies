@@ -40,11 +40,11 @@ export const Profile = styled(Link)`
 `;
 
 export const Logout = styled.button`
-    display: flex;
-    justify-content: end;
     border: none;
     background: none;
     color: ${({theme}) => theme.COLORS.GRAY_300};
+
+    margin-left: 50%;
 `;
 
 export const Brand = styled.div`

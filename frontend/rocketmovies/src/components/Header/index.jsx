@@ -8,14 +8,16 @@ export function Header(){
 
             <InputSearch placeholder="Pesquisar pelo titulo"/>
 
-            <Profile to="/profile" >
-                <div>
-                    <strong>Luiz Henrique</strong>
-                    <Logout>sair</Logout>
-                </div>
+            <div className="min-header">
+                <Profile to="/profile" >
+                    <div>
+                        <strong>Luiz Henrique</strong>
+                    </div>
 
-                <img src="https://github.com/lhenriquesf.png" alt="Foto do usuario"/>
-            </Profile>
+                    <img src="https://github.com/lhenriquesf.png" alt="Foto do usuário"/>
+                </Profile>
+                <Logout>sair</Logout>
+            </div>
         </Container>
     )
 }

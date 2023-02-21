@@ -3,19 +3,22 @@ require("express-async-errors");
 const uploadConfig = require("./configs/upload");
 
 const AppError = require("./utils/AppError");
+const cors = require("cors");
 
-const migatrionsRun = require("./database/sqlite/migrations");
+const migrationsRun = require("./database/sqlite/migrations");
+
+const routes = require("./routes");
+
 
 const express = require("express");
 const app = express();
-migatrionsRun();
+migrationsRun();
 
+app.use(cors());
 app.use(express.json());
-
-const routes = require("./routes");
 app.use(routes);
 
-app.use("/files", express.static(uploadConfig.UPLOADS_FORLDER));
+app.use("/files", express.static(uploadConfig.UPLOADS_FOLDER));
 
 
 app.use((error, request, response, next)=>{
@@ -34,5 +37,5 @@ app.use((error, request, response, next)=>{
     });
 })
 
-const PORT = 6000;
+const PORT = 8181;
 app.listen(PORT, ()=> console.log(`Server is running on Port ${PORT}`));

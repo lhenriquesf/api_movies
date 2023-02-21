@@ -27,7 +27,7 @@ class SessionsController{
         const token = sign({}, secret, {
             subject: String(user.id),
             expiresIn
-        })
+        });
 
         return response.json({user, token});
     };
