@@ -12,10 +12,15 @@ function AuthProvider({children}){
             const response = await api.post("/sessions", {email, password});
 
             const {user, token} = response.data;
+
+            localStorage.setItem("@apimovies:user", JSON.stringify(user));
+            localStorage.setItem("@apimovies:token", JSON.stringify);
+
             api.defaults.headers.common[`Authorization`] = `Bearer ${token}`;
 
             setData({user, token});
-            console.log(user, token)
+            console.log('PQ')
+            
         }catch(error){
             if(error.response){
                 alert(error.response.data.message);
@@ -28,7 +33,7 @@ function AuthProvider({children}){
     return(
         <AuthContext.Provider value={{
             singIn,
-            data: data.user
+            user: data.user
         }}>
             {children}
         </AuthContext.Provider>
@@ -42,5 +47,5 @@ function useAuth(){
 
 export {
     AuthProvider,
-    useAuth
+    useAuth,
 };

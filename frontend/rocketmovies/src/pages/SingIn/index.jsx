@@ -17,10 +17,16 @@ export function SingIn(){
     function handleSingIn(){
         singIn({email, password});
     }
+
+    function handleKeyPress(event) {
+        if(event.key === "Enter"){
+            handleSingIn()
+        }
+      }
     
     return(
         <Container>
-            <Form>
+            <Form onKeyPress={handleKeyPress}>
                 <h1>RocketMovies</h1>
                 <p>Aplicação para acompanhar tudo que assistir</p>
 
@@ -42,7 +48,7 @@ export function SingIn(){
                     />
                 </section>
 
-                <Button title="Entrar" onClick={handleSingIn} />
+                <Button title="Entrar" onClick={handleSingIn}/>
 
                 <Link to="/register"> Criar conta</Link>
             </Form>
