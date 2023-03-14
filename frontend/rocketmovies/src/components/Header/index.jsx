@@ -1,7 +1,16 @@
 import { Container, Profile, Logout, Brand } from "./styles";
 import { InputSearch } from "../InputSearch";
+import { useAuth } from "../../hooks/auth";
+
+import { api } from "../../services/api";
+import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 
 export function Header(){
+
+    const { singOut, user } = useAuth();
+
+    const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
+
     return(
         <Container>
             <Brand>RocketMovies</Brand>
@@ -11,12 +20,12 @@ export function Header(){
             <div className="min-header">
                 <Profile to="/profile" >
                     <div>
-                        <strong>Luiz Henrique</strong>
+                        <strong>{user.name}</strong>
                     </div>
 
-                    <img src="https://github.com/lhenriquesf.png" alt="Foto do usuário"/>
+                    <img src={avatarURL} alt={user.name}/>
                 </Profile>
-                <Logout>sair</Logout>
+                <Logout onClick={singOut}>sair</Logout>
             </div>
         </Container>
     )

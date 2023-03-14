@@ -6,7 +6,7 @@ class DiskStorage{
     async saveFile(file){
         await fs.promises.rename(
             path.resolve(uploadConfig.TMP_FOLDER, file),
-            path.resolve(uploadConfig.UPLOADS_FORLDER, file),
+            path.resolve(uploadConfig.UPLOADS_FOLDER, file)
         );
 
         return file;
@@ -14,10 +14,10 @@ class DiskStorage{
 
 
     async deleteFile(file){
-        const filePath =  path.resolve(uploadConfig.UPLOADS_FORLDER, file);
+        const filePath = path.resolve(uploadConfig.UPLOADS_FOLDER, file);
 
         try{
-            fs.promises.stat(filePath);
+            await fs.promises.stat(filePath);
         }catch{
             return;
         }
